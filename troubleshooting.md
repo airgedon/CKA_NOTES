@@ -32,4 +32,9 @@ crictl logs f669a6f3afda2
 ```
 journalctl | grep apiserver # nothing specific
 cat /var/log/syslog | grep apiserver # nothing specific
+tail -f /var/log/syslog | grep apiserver
+```
+
+```
+cp ~/kube-apiserver.yaml.ori /etc/kubernetes/manifests/kube-apiserver.yaml
 ```

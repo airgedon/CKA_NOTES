@@ -38,3 +38,12 @@ tail -f /var/log/syslog | grep apiserver
 ```
 cp ~/kube-apiserver.yaml.ori /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
+---
+
+```
+k get no
+ssh node01
+service kubelet status
+cat /var/log/syslog | grep kubelet
+find / | grep kubeadm
+```

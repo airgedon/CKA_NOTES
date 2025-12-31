@@ -57,3 +57,12 @@ To fix we remove the unknown flag in:
 service kubelet restart
 service kubelet status
 ```
+```
+kubectl -n management logs -h
+
+kubectl -n management logs deploy/collect-data -c nginx >> /root/logs.log
+
+kubectl -n management logs deploy/collect-data -c httpd >> /root/logs.log
+
+kubectl -n management logs --all-containers deploy/collect-data > /root/logs.log
+```

@@ -47,3 +47,13 @@ service kubelet status
 cat /var/log/syslog | grep kubelet
 find / | grep kubeadm
 ```
+```
+--kubeconfig=/etc/kubernetes/kubelet.conf
+```
+To fix we remove the unknown flag in:
+
+```
+/var/lib/kubelet/kubeadm-flags.env
+service kubelet restart
+service kubelet status
+```

@@ -3,6 +3,7 @@ kubectl create cm -h
 kubectl create cm trauerweide --from-literal tree=trauerweide
 ```
 ---
+k8s docs -> configmaps 그냥
 
 ```yaml
 kind: Pod

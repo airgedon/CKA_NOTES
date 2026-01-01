@@ -35,3 +35,27 @@ The ingress rule allows traffic specifically from pods with the label name: api-
 Keep in mind that isolation only applies to the traffic explicitly defined under policyTypes. Unspecified traffic is automatically allowed by default.
 
 
+```
+k get ns --show-labels
+```
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np
+  namespace: space1
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+     - namespaceSelector:
+        matchLabels:
+         kubernetes.io/metadata.name: space2
+  - ports:
+    - port: 53
+      protocol: TCP
+    - port: 53
+      protocol: UDP
+```

@@ -113,3 +113,27 @@ spec:
     - port: 53
       protocol: TCP
 ```
+Explanation:
+
+Target Pods:
+This policy applies to all pods in the default namespace with the label name: internal.
+
+Ingress:
+All incoming traffic is allowed to these pods. This is typically needed for UI-based testing during labs.
+
+In production, you should restrict ingress to only trusted sources.
+
+Egress:
+Outbound traffic is restricted to:
+
+Pods labeled name: mysql on TCP port 3306 (database service)
+Pods labeled name: payroll on TCP port 8080 (payroll service)
+Any destination on UDP/TCP port 53 (for DNS resolution, required for service discovery in Kubernetes)
+DNS Access:
+DNS is handled by the kube-dns service, which listens on port 53 for both UDP and TCP:
+
+root@controlplane:~> kubectl get svc -n kube-system 
+NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   18m
+
+root@controlplane:~>

@@ -59,3 +59,11 @@ spec:
     - port: 53
       protocol: UDP
 ```
+---
+
+```
+kubectl get pod -A --show-labels
+
+# there are tester pods that you can use
+kubectl get svc,pod -A --show-labels | grep tester
+```

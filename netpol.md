@@ -67,3 +67,9 @@ kubectl get pod -A --show-labels
 # there are tester pods that you can use
 kubectl get svc,pod -A --show-labels | grep tester
 ```
+
+```
+kubectl exec tester-0 -- curl tester.level-1000.svc.cluster.local
+kubectl exec tester-0 -- curl tester.level-1001.svc.cluster.local
+kubectl exec tester-0 -- curl tester.level-1002.svc.cluster.local
+```
